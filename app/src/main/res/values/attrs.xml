@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr format="reference" name="text"/>
+
+    <declare-styleable name="SimpleTextBox">
+        <attr name="hint" format="reference" />
+        <attr name="text" />
+    </declare-styleable>
+
+    <declare-styleable name="EditTextCustomView">
+        <attr name="text" />
+        <attr name="max_characters" format="reference" />
+        <attr name="android:inputType" />
+    </declare-styleable>
+
+    <declare-styleable name="SearchBoxCustomView">
+        <attr name="hint" />
+        <attr name="max_characters" />
+        <attr name="android:inputType" />
+    </declare-styleable>
+</resources>
