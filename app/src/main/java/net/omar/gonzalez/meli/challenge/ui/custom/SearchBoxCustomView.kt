@@ -2,7 +2,9 @@ package net.omar.gonzalez.meli.challenge.ui.custom
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.KeyEvent
 import android.view.LayoutInflater
+import android.view.inputmethod.EditorInfo
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
@@ -14,9 +16,11 @@ class SearchBoxCustomView(
     context: Context,
     attrs: AttributeSet?): ConstraintLayout(context, attrs) {
 
-    var onTextChange: ((String) -> Unit)? = null
+    private var onTextChange: ((String) -> Unit)? = null
 
-    var onEditTextClickListener: (() -> Unit)? = null
+    private var onEditTextClickListener: (() -> Unit)? = null
+
+    private var onSearchClick: ((String) -> Unit)? = null
 
     private val binding: SearchCustomViewBinding by lazy {
         SearchCustomViewBinding.inflate(
@@ -54,6 +58,14 @@ class SearchBoxCustomView(
         binding.input.doOnTextChanged { text, _, _, _ ->
             onTextChange?.invoke(text.toString())
         }
+
+        binding.input.setOnEditorActionListener { _, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH ||
+                event.keyCode == KeyEvent.KEYCODE_ENTER) {
+                onSearchClick?.invoke(binding.input.text.toString())
+            }
+            true
+        }
     }
 
     fun onEditTextClickListener(onEditTextClickListener: (() -> Unit)? = null) {
@@ -62,6 +74,10 @@ class SearchBoxCustomView(
 
     fun setOnTextChangeListener(onTextChange: ((String) -> Unit)? = null) {
         this.onTextChange = onTextChange
+    }
+
+    fun setOnSearchButtonClickListener(onSearchClick: ((String) -> Unit)? = null) {
+        this.onSearchClick = onSearchClick
     }
 
     fun setText(text: String) {

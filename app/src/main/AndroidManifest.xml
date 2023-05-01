@@ -6,6 +6,7 @@
 
     <application
         android:name=".MeliChallengeAplication"
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,7 +16,7 @@
         android:theme="@style/Theme.MeliChallenge"
         tools:targetApi="31">
         <activity
-            android:name=".BaseViewActivity"
+            android:name=".ui.base.BaseViewActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MainSearchActivity"
@@ -33,6 +34,10 @@
         </activity>
         <activity
             android:name=".ui.search.SearchActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MeliChallenge.NoActionBar" />
+        <activity
+            android:name=".ui.productlist.ProductListActivity"
             android:exported="true"
             android:theme="@style/Theme.MeliChallenge.NoActionBar" />
     </application>

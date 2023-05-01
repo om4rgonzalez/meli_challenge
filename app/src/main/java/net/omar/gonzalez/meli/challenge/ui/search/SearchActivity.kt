@@ -11,6 +11,7 @@ import net.omar.gonzalez.meli.challenge.databinding.ActivitySearchBinding
 import net.omar.gonzalez.meli.challenge.repository.HistoryRepository
 import net.omar.gonzalez.meli.challenge.ui.base.BaseViewActivity
 import net.omar.gonzalez.meli.challenge.ui.model.SearchCustomModel
+import net.omar.gonzalez.meli.challenge.ui.productlist.ProductListActivity
 import net.omar.gonzalez.meli.challenge.utils.getViewModel
 
 class SearchActivity : BaseViewActivity() {
@@ -62,7 +63,9 @@ class SearchActivity : BaseViewActivity() {
             }
         }
 
-
+        binding.searchView.setOnSearchButtonClickListener { key ->
+            search(key)
+        }
 
 
 //        viewModel.insertHistory("celular")
@@ -91,5 +94,8 @@ class SearchActivity : BaseViewActivity() {
     private fun search(key: String) {
         Log.d("SEARCH", "ITEM TO SEARCH: "+key)
         viewModel.insertHistory(key)
+        startActivity(
+            ProductListActivity.getIntent(this, key)
+        )
     }
 }
