@@ -30,7 +30,6 @@ class MainSearchActivity : BaseViewActivity() {
     private fun setupView() {
         binding.searchView.onEditTextClickListener {
             startActivity(
-//                Intent(this, SearchActivity::class.java)
                 SearchActivity.getIntent(
                     this,
                     getViewType(false)

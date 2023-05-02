@@ -67,10 +67,7 @@ class SearchActivity : BaseViewActivity() {
             search(key)
         }
 
-
-//        viewModel.insertHistory("celular")
-//        viewModel.insertHistory("motorola")
-//        viewModel.insertHistory("mini compresor")
+        binding.searchView.inputRequestFocus()
 
     }
 

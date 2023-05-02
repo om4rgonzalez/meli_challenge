@@ -1,6 +1,7 @@
 package net.omar.gonzalez.meli.challenge.ui.custom
 
 import android.content.Context
+import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.KeyEvent
 import android.view.LayoutInflater
@@ -83,4 +84,6 @@ class SearchBoxCustomView(
     fun setText(text: String) {
         binding.input.setText(text)
     }
+
+    fun inputRequestFocus() = binding.input.requestFocus()
 }

@@ -4,14 +4,18 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import net.omar.gonzalez.meli.challenge.data.api.model.Resource
 import net.omar.gonzalez.meli.challenge.databinding.ActivityProductListBinding
 import net.omar.gonzalez.meli.challenge.repository.HistoryRepository
 import net.omar.gonzalez.meli.challenge.repository.SearchRepository
 import net.omar.gonzalez.meli.challenge.ui.base.BaseViewActivity
+import net.omar.gonzalez.meli.challenge.ui.model.getViewType
 import net.omar.gonzalez.meli.challenge.ui.search.HistoryAdapter
+import net.omar.gonzalez.meli.challenge.ui.search.SearchActivity
 import net.omar.gonzalez.meli.challenge.ui.search.SearchViewModel
 import net.omar.gonzalez.meli.challenge.utils.getViewModel
 
@@ -48,12 +52,15 @@ class ProductListActivity: BaseViewActivity() {
             baseBinding.baseContainer,
             true
         )
+        binding.searchView.setupView(getViewType(true))
         setupView()
         setupObservable()
     }
 
     private fun setupView() {
-
+        binding.searchView.onEditTextClickListener {
+            finish()
+        }
     }
 
     private fun setupObservable() {
@@ -62,12 +69,24 @@ class ProductListActivity: BaseViewActivity() {
             viewModel.searchProducts(key).observe(this) {response ->
                 when(response) {
                     is Resource.Success -> {
-                        showProgress(false)
                         binding.productList.layoutManager = LinearLayoutManager(this)
+                        binding.productList.addItemDecoration(
+                            DividerItemDecoration(
+                                this,
+                                DividerItemDecoration.VERTICAL
+                            )
+                        )
                         binding.productList.adapter = ProductListAdapter(
                             this,
                             response.values.results
                         )
+
+                        (binding.productList.adapter as ProductListAdapter)
+                            .setOnItemClickListener { product ->
+                            //TODO implement view detail activity
+                        }
+
+                        showProgress(false)
                     }
                     else -> {
 

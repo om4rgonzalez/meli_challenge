@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
 
     <ImageView
         android:id="@+id/productImage"
@@ -17,6 +18,7 @@
         android:layout_marginStart="@dimen/margin_buttons_search_view"
         android:layout_marginEnd="@dimen/margin_buttons_search_view"
         android:layout_marginBottom="@dimen/margin_buttons_search_view"
+        android:layout_marginTop="@dimen/margin_buttons_search_view"
         tools:background="@color/grey" />
 
     <net.omar.gonzalez.meli.challenge.ui.custom.HighlightItemCustomView
@@ -63,7 +65,8 @@
         android:layout_marginStart="@dimen/margin_buttons_search_view"
         android:textSize="12sp"
         android:textColor="@color/green_light"
-        android:text="5% OFF"
+        tools:text="5% OFF"
+        android:visibility="gone"
         />
 
     <TextView
@@ -79,7 +82,8 @@
         android:maxLines="3"
         android:textColor="@color/green_light"
         android:textStyle="bold"
-        android:text="Mismo precio en 6 cuotas de $257.599"
+        tools:text="Mismo precio en 6 cuotas de $257.599"
+        android:visibility="gone"
         />
 
     <TextView
@@ -92,7 +96,8 @@
         android:textColor="@color/green_light"
         android:textStyle="bold"
         android:layout_marginTop="7dp"
-        android:text="Envío gratis"
+        android:text="@string/product_free_shipping"
+        android:visibility="gone"
         />
 
     <TextView
@@ -104,7 +109,8 @@
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/productName"
         app:layout_constraintTop_toBottomOf="@+id/freeShipText"
-        tools:text="Vendido por Coca Cola" />
+        tools:text="Vendido por Coca Cola"
+        android:visibility="gone"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/verticalGuideline"

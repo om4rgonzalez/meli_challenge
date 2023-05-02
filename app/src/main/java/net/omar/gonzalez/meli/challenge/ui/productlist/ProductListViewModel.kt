@@ -13,7 +13,6 @@ class ProductListViewModel(
     fun searchProducts(keyChain: String) = liveData {
         when(val response = api.search(keyChain)) {
             is Resource.Success -> {
-                Log.d("Search",response.values.toString())
                 emit(Resource.Success(response.values))
             }
 

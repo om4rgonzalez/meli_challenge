@@ -2,4 +2,7 @@
     <string name="app_name">Meli Challenge</string>
     <string name="splash_text">Mercado Libre</string>
     <string name="search_hint_text">Buscar en Mercado Libre</string>
+    <string name="product_free_shipping">Envío gratis</string>
+    <string name="discount_text">%1$s%% OFF</string>
+    <string name="seller_by">Vendido por %1$s</string>
 </resources>
