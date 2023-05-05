@@ -6,7 +6,7 @@ data class Attribute(
     val id: String,
     val name: String,
     val source: Long? = 0,
-    val value_id: String,
+    val value_id: String? = null,
     val value_name: String,
     val value_struct: net.omar.gonzalez.meli.challenge.data.api.model.response.ValueStruct,
     val value_type: String,

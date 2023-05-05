@@ -23,6 +23,8 @@ class SearchBoxCustomView(
 
     private var onSearchClick: ((String) -> Unit)? = null
 
+    private var onBackButtonPressed: (() -> Unit)? = null
+
     private val binding: SearchCustomViewBinding by lazy {
         SearchCustomViewBinding.inflate(
             LayoutInflater.from(context),
@@ -56,6 +58,10 @@ class SearchBoxCustomView(
             onEditTextClickListener?.invoke()
         }
 
+        binding.input.setOnClickListener {
+            onEditTextClickListener?.invoke()
+        }
+
         binding.input.doOnTextChanged { text, _, _, _ ->
             onTextChange?.invoke(text.toString())
         }
@@ -67,10 +73,22 @@ class SearchBoxCustomView(
             }
             true
         }
+
+        binding.deleteButton.setOnClickListener {
+            binding.input.text.clear()
+        }
+
+        binding.backButton.setOnClickListener {
+            onBackButtonPressed?.invoke()
+        }
     }
 
     fun onEditTextClickListener(onEditTextClickListener: (() -> Unit)? = null) {
         this.onEditTextClickListener = onEditTextClickListener
+    }
+
+    fun setOnBackButtonPressedListener(onBackButtonPressed: (() -> Unit)? = null) {
+        this.onBackButtonPressed = onBackButtonPressed
     }
 
     fun setOnTextChangeListener(onTextChange: ((String) -> Unit)? = null) {

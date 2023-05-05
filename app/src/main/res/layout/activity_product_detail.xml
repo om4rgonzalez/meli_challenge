@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <net.omar.gonzalez.meli.challenge.ui.custom.SearchBoxCustomView
+        android:id="@+id/searchView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/margin_history_text_view">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_view">
+
+            <TextView
+                android:id="@+id/productStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/hint_text_color"
+                android:textSize="12sp"
+                android:layout_marginTop="@dimen/margin_buttons_search_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Nuevo  |  11 vendidos" />
+
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/productStatus"
+                app:layout_constraintTop_toBottomOf="@+id/productStatus"
+                tools:text="Samsung S10" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/slider"
+                android:layout_width="0dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/productName"
+                app:layout_constraintTop_toBottomOf="@+id/productName" />
+
+
+            <ImageView
+                android:id="@+id/sharedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/share_circle"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp"
+                android:src="@drawable/ic_share"
+                app:layout_constraintBottom_toBottomOf="@id/slider"
+                app:layout_constraintEnd_toEndOf="@id/slider"
+                app:tint="@color/black" />
+
+            <TextView
+                android:id="@+id/oldPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/slider"
+                app:layout_constraintTop_toBottomOf="@+id/slider"
+                android:layout_marginTop="@dimen/margin_buttons_search_view"
+                tools:text="@string/old_price_text"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                app:layout_constraintStart_toStartOf="@+id/slider"
+                app:layout_constraintTop_toBottomOf="@+id/oldPrice"
+                tools:text="$ 2.790" />
+
+            <TextView
+                android:id="@+id/quotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_buttons_search_view"
+                android:textColor="@color/black"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/price"
+                app:layout_constraintTop_toBottomOf="@+id/price"
+                tools:text="en 12x $ 8.455,36" />
+
+            <TextView
+                android:id="@+id/paymentMethods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_buttons_search_view"
+                android:textColor="@color/color_button_buy"
+                app:layout_constraintStart_toStartOf="@+id/quotes"
+                app:layout_constraintTop_toBottomOf="@+id/quotes"
+                android:text="@string/payment_methods_text" />
+
+            <TextView
+                android:id="@+id/availableStockLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_buttons_search_view"
+                android:text="@string/available_stock_text_label"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/price"
+                app:layout_constraintTop_toBottomOf="@id/paymentMethods" />
+
+            <TextView
+                android:id="@+id/quantityButton"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="@dimen/margin_history_text_view"
+                android:background="@color/grey_background"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/margin_buttons_search_view"
+                android:text="@string/available_quantity_text_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/availableStockLabel"
+                app:layout_constraintTop_toBottomOf="@id/availableStockLabel" />
+
+            <ImageView
+                android:id="@+id/quantityButtonArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_buttons_search_view"
+                android:src="@drawable/ic_arrow_forward"
+                app:layout_constraintBottom_toBottomOf="@id/quantityButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/quantityButton"
+                app:tint="@color/color_button_buy" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buyButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_history_text_view"
+                android:backgroundTint="@color/color_button_buy"
+                android:text="@string/buy_button_text"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/quantityButton" />
+
+            <TextView
+                android:id="@+id/productDetailLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_history_text_view"
+                android:text="@string/product_detail_title"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/buyButton"
+                app:layout_constraintTop_toBottomOf="@id/buyButton" />
+
+            <ImageView
+                android:id="@+id/productDetailBullet1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_history_text_view"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintStart_toStartOf="@id/productDetailLabel"
+                app:layout_constraintTop_toBottomOf="@id/productDetailLabel"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/productDetailText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_history_text_view"
+                android:text="@string/item_description"
+                app:layout_constraintBottom_toBottomOf="@id/productDetailBullet1"
+                app:layout_constraintStart_toEndOf="@id/productDetailBullet1"
+                app:layout_constraintTop_toTopOf="@id/productDetailBullet1"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/productDetailBullet2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_history_text_view"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintStart_toStartOf="@id/productDetailLabel"
+                app:layout_constraintTop_toBottomOf="@id/productDetailBullet1"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/productDetailText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_history_text_view"
+                android:text="@string/item_description"
+                app:layout_constraintBottom_toBottomOf="@id/productDetailBullet2"
+                app:layout_constraintStart_toEndOf="@id/productDetailBullet2"
+                app:layout_constraintTop_toTopOf="@id/productDetailBullet2"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/productDetailBullet3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_history_text_view"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintStart_toStartOf="@id/productDetailLabel"
+                app:layout_constraintTop_toBottomOf="@id/productDetailBullet2"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/productDetailText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_history_text_view"
+                android:text="@string/item_description"
+                app:layout_constraintBottom_toBottomOf="@id/productDetailBullet3"
+                app:layout_constraintStart_toEndOf="@id/productDetailBullet3"
+                app:layout_constraintTop_toTopOf="@id/productDetailBullet3"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/productDetailBullet4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_history_text_view"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintStart_toStartOf="@id/productDetailLabel"
+                app:layout_constraintTop_toBottomOf="@id/productDetailBullet3"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/productDetailText4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_history_text_view"
+                android:text="@string/item_description"
+                app:layout_constraintBottom_toBottomOf="@id/productDetailBullet4"
+                app:layout_constraintStart_toEndOf="@id/productDetailBullet4"
+                app:layout_constraintTop_toTopOf="@id/productDetailBullet4"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/productDetailBullet5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_history_text_view"
+                android:src="@drawable/ic_check_circle"
+                app:layout_constraintStart_toStartOf="@id/productDetailLabel"
+                app:layout_constraintTop_toBottomOf="@id/productDetailBullet4"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/productDetailText5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_history_text_view"
+                android:text="@string/item_description"
+                app:layout_constraintBottom_toBottomOf="@id/productDetailBullet5"
+                app:layout_constraintStart_toEndOf="@id/productDetailBullet5"
+                app:layout_constraintTop_toTopOf="@id/productDetailBullet5"
+                android:visibility="gone"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loader_animation"
+        android:visibility="gone"
+        tools:visibility="visible"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

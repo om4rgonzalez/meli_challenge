@@ -14,6 +14,7 @@ import net.omar.gonzalez.meli.challenge.repository.HistoryRepository
 import net.omar.gonzalez.meli.challenge.repository.SearchRepository
 import net.omar.gonzalez.meli.challenge.ui.base.BaseViewActivity
 import net.omar.gonzalez.meli.challenge.ui.model.getViewType
+import net.omar.gonzalez.meli.challenge.ui.productdetail.ProductDetailActivity
 import net.omar.gonzalez.meli.challenge.ui.search.HistoryAdapter
 import net.omar.gonzalez.meli.challenge.ui.search.SearchActivity
 import net.omar.gonzalez.meli.challenge.ui.search.SearchViewModel
@@ -83,13 +84,18 @@ class ProductListActivity: BaseViewActivity() {
 
                         (binding.productList.adapter as ProductListAdapter)
                             .setOnItemClickListener { product ->
-                            //TODO implement view detail activity
+                            startActivity(
+                                ProductDetailActivity.getIntent(
+                                    this,
+                                    product.id
+                                )
+                            )
                         }
 
                         showProgress(false)
                     }
                     else -> {
-
+                        //TODO implement call to error view
                     }
                 }
             }

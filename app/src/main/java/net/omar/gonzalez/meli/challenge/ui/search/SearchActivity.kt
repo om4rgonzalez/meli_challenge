@@ -69,6 +69,10 @@ class SearchActivity : BaseViewActivity() {
 
         binding.searchView.inputRequestFocus()
 
+        binding.searchView.setOnBackButtonPressedListener {
+            finish()
+        }
+
     }
 
     private fun setupObserver() {
@@ -89,7 +93,6 @@ class SearchActivity : BaseViewActivity() {
     }
 
     private fun search(key: String) {
-        Log.d("SEARCH", "ITEM TO SEARCH: "+key)
         viewModel.insertHistory(key)
         startActivity(
             ProductListActivity.getIntent(this, key)

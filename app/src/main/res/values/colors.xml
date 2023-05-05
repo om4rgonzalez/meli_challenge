@@ -15,6 +15,6 @@
     <color name="color_button_buy">#FF3483FA</color>
     <color name="hint_text_color">#AFAFAF</color>
 
-    <color name="grey">#AFAFAF</color>
+    <color name="grey_background">#E8E6E6</color>
 
 </resources>

@@ -13,7 +13,7 @@ fun ImageView.loadImage(
 ) {
     Glide.with(context)
         .load(url)
-        .centerCrop()
+        .fitCenter()
         .error(onError)
         .placeholder(placeholder)
         .skipMemoryCache(true)

@@ -4,6 +4,7 @@
     <dimen name="text_size_splash">50dp</dimen>
     <dimen name="margin_buttons_search_view">10dp</dimen>
     <dimen name="margin_history_text_view">20dp</dimen>
+    <dimen name="card_corner_radius">10dp</dimen>
 
 <!--    Text Size-->
     <dimen name="search_text_size">14sp</dimen>

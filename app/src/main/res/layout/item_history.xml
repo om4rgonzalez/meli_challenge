@@ -14,13 +14,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="@dimen/margin_buttons_search_view"
-        app:tint="@color/grey" />
+        app:tint="@color/hint_text_color" />
 
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/grey"
+        android:textColor="@color/hint_text_color"
         android:textSize="@dimen/search_text_size"
         app:layout_constraintBottom_toBottomOf="@+id/orderTime"
         app:layout_constraintStart_toEndOf="@+id/orderTime"

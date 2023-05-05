@@ -1,8 +1,20 @@
 <resources>
+    <string name="global_new">Nuevo</string>
+    <string name="global_used">Usado</string>
+
     <string name="app_name">Meli Challenge</string>
     <string name="splash_text">Mercado Libre</string>
     <string name="search_hint_text">Buscar en Mercado Libre</string>
     <string name="product_free_shipping">Envío gratis</string>
     <string name="discount_text">%1$s%% OFF</string>
     <string name="seller_by">Vendido por %1$s</string>
+    <string name="payment_methods_text">Ver los medios de pago</string>
+    <string name="old_price_text"><strike>%1$s</strike></string>
+    <string name="available_stock_text_label">Stock disponible</string>
+    <string name="available_quantity_text_button">Cantidad: <b>1</b>  <font color="#AFAFAF">(%1$s disponibles)</font></string>
+    <string name="buy_button_text">Comprar ahora</string>
+    <string name="item_description">%1$s: <b>%2$s</b></string>
+    <string name="product_detail_title">Características del producto</string>
+    <string name="slider_counter">%1$s / %2$s</string>
+    <string name="product_status_selled">%1$s | %2$s vendidos</string>
 </resources>
