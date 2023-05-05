@@ -8,6 +8,7 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import net.omar.gonzalez.meli.challenge.R
 import net.omar.gonzalez.meli.challenge.data.api.model.Resource
 import net.omar.gonzalez.meli.challenge.databinding.ActivityProductListBinding
 import net.omar.gonzalez.meli.challenge.repository.HistoryRepository
@@ -95,7 +96,11 @@ class ProductListActivity: BaseViewActivity() {
                         showProgress(false)
                     }
                     else -> {
-                        //TODO implement call to error view
+                        super.showError(
+                            this,
+                            getString(R.string.generic_error_view_product_list_description)
+                        )
+                        finish()
                     }
                 }
             }

@@ -116,7 +116,11 @@ class ProductDetailActivity: BaseViewActivity() {
                         showProgress(false)
                     }
                     else -> {
-                        Log.d("DETAIL", "ERROR")
+                        super.showError(
+                            this,
+                            getString(R.string.generic_error_view_product_detail_description)
+                        )
+                        finish()
                     }
                 }
             }

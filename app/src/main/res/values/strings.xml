@@ -17,4 +17,9 @@
     <string name="product_detail_title">Características del producto</string>
     <string name="slider_counter">%1$s / %2$s</string>
     <string name="product_status_selled">%1$s | %2$s vendidos</string>
+    <string name="generic_error_view_title">Algo salió mal.</string>
+    <string name="generic_error_view_generic_description">Hubo un inconveniente y no pudimos completar tu solicitud. Vuelve a intentarlo.</string>
+    <string name="generic_error_view_product_list_description">Hubo un inconveniente mientras intentabamos mostrar la lista de resultados de tu busqueda. Intenta nuevamente en unos segundos.</string>
+    <string name="generic_error_view_product_detail_description">Hubo un inconveniente y no pudimos obtener la información del producto. Vuelve a intentarlo.</string>
+    <string name="understood_button_text">Entendido</string>
 </resources>
