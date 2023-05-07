@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -93,4 +95,9 @@ dependencies {
     testImplementation 'org.mockito:mockito-inline:4.6.1'
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
     testImplementation "androidx.arch.core:core-testing:2.2.0"
+
+    //firebase crashlitycs
+    implementation platform('com.google.firebase:firebase-bom:31.5.0')
+    implementation 'com.google.firebase:firebase-crashlytics:18.3.6'
+    implementation 'com.google.firebase:firebase-analytics:21.2.2'
 }

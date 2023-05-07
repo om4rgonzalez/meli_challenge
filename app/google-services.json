@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "813653111567",
+    "project_id": "meli-challenge-21760",
+    "storage_bucket": "meli-challenge-21760.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813653111567:android:07feaac17f76c52776847a",
+        "android_client_info": {
+          "package_name": "net.omar.gonzalez.meli.challenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813653111567-tgpinbditqur6m4ncbg939cf0n41aucv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBryFc1y_CeEsUsEZXMowiZ2YCVM_ofgDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813653111567-tgpinbditqur6m4ncbg939cf0n41aucv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
