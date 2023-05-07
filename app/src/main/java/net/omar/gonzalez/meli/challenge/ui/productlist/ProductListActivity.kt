@@ -66,8 +66,8 @@ class ProductListActivity: BaseViewActivity() {
     }
 
     private fun setupObservable() {
+        showProgress(true)
         intent.getStringExtra(SEARCH_KEY)?.let {key ->
-            showProgress(true)
             viewModel.searchProducts(key).observe(this) {response ->
                 when(response) {
                     is Resource.Success -> {

@@ -35,7 +35,7 @@ class SearchActivity : BaseViewActivity() {
     private val viewModel: SearchViewModel by lazy {
         getViewModel {
             SearchViewModel(
-                HistoryRepository(this@SearchActivity)
+                HistoryRepository()
             )
         }
     }
@@ -58,8 +58,11 @@ class SearchActivity : BaseViewActivity() {
         }
 
         binding.searchView.setOnTextChangeListener() { text ->
-            (binding.searchHistory.adapter as HistoryAdapter)?.let {adapter ->
-                adapter.refreshView(adapter.historyList.filter { list -> list.searchKey.contains(text) })
+            (binding.searchHistory.adapter as HistoryAdapter).let { adapter ->
+                adapter.refreshView(viewModel.historyList.filter {
+                        list -> list.searchKey.contains(text)
+                }
+                )
             }
         }
 
@@ -72,7 +75,6 @@ class SearchActivity : BaseViewActivity() {
         binding.searchView.setOnBackButtonPressedListener {
             finish()
         }
-
     }
 
     private fun setupObserver() {

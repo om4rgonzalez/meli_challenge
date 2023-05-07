@@ -19,7 +19,10 @@ class SearchViewModel(
     }
 
     fun insertHistory(key: String) {
-        if (historyList.none { history -> history.searchKey == key })
+        if (historyList.none { history ->
+                history.searchKey.uppercase().trim() == key.uppercase().trim()
+        }
+        )
             viewModelScope.launch {
                 repository.insert(History(key))
             }

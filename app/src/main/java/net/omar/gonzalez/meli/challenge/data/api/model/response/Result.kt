@@ -20,7 +20,7 @@ data class Result(
     val listing_type_id: String,
     val official_store_id: Any,
     val order_backend: Int,
-    val original_price: Any,
+    val original_price: Any? = null,
     val permalink: String,
     val price: Double,
     val promotions: List<Any>,

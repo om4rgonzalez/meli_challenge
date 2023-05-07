@@ -1,4 +1,5 @@
 package net.omar.gonzalez.meli.challenge.ui.productlist
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -58,15 +59,14 @@ class ProductListAdapter(
 
             freeShipText.isVisible = product.shipping.free_shipping
 
-            product.original_price?.let { original ->
+            product.original_price?.let { originalPrice ->
                 discountText.text = context.getString(
                     R.string.discount_text,
                     getDiscount(
-                        original.toString().toDouble(),
+                        originalPrice.toString().toDouble(),
                         product.price
                     )
                 )
-
                 discountText.isVisible = true
             }
 

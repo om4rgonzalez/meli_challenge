@@ -14,16 +14,13 @@ abstract class HistoryDataBase: RoomDatabase() {
 
     companion object {
         @Volatile
-        private var INSTANCE: HistoryDataBase? = null
+        private lateinit var INSTANCE: HistoryDataBase
 
-        fun getDatabase(
-            context: Context,
-            dataBaseName: String
-        ): HistoryDataBase {
-            // if the INSTANCE is not null, then return it,
-            // if it is, then create the database
-            return INSTANCE ?: synchronized(this) {
-                val instance = Room.databaseBuilder(
+        fun getDatabase(): HistoryDataBase = INSTANCE
+
+        fun initDataBase(context: Context, dataBaseName: String) {
+            synchronized(this) {
+                INSTANCE = Room.databaseBuilder(
                     context.applicationContext,
                     HistoryDataBase::class.java,
                     dataBaseName
@@ -32,9 +29,6 @@ abstract class HistoryDataBase: RoomDatabase() {
                     // Migration is not part of this codelab.
                     .fallbackToDestructiveMigration()
                     .build()
-                INSTANCE = instance
-                // return instance
-                instance
             }
         }
     }
