@@ -50,7 +50,7 @@ class ProductListAdapter(
             productImage.loadImage(
                 product.thumbnail,
                 context,
-                R.drawable.ic_broken_image
+                R.drawable.ic_photo_camera
             )
 
             productName.text = product.title
